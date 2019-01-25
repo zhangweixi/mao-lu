@@ -16,8 +16,9 @@
 	13. SHOW OPTIONS
 
 */
-(function($) {
-    "use strict";
+
+function app_init($) {
+    //"use strict";
 
     /* ------------------  Background INSERT ------------------ */
 
@@ -52,12 +53,13 @@
     /* ------------------  NAV MODULE  ------------------ */
 	
     var $moduleIcon = $(".module-icon"),
-        $moduleCancel = $(".module-cancel");
+    $moduleCancel = $(".module-cancel");
     $moduleIcon.on("click", function(e) {
         $(this).parent().siblings().removeClass('module-active'); // Remove the class .active form any sibiling.
         $(this).parent(".module").toggleClass("module-active"); //Add the class .active to parent .module for this element.
         e.stopPropagation();
     });
+    
     // If Click on [ Search-cancel ] Link
     $moduleCancel.on("click", function(e) {
         $(".module").removeClass("module-active");
@@ -73,7 +75,7 @@
             $(this).removeClass("module-hamburger-close");
         }
     });
-	
+
     // If Click on [ Document ] and this click outside [ hamburger panel ]
     $(document).on("click", function(e) {
         if ($(e.target).is(".hamburger-panel,.hamburger-panel .list-links,.hamburger-panel .list-links a,.hamburger-panel .social-share,.hamburger-panel .social-share a i,.hamburger-panel .social-share a,.hamburger-panel .copywright") === false) {
@@ -276,5 +278,6 @@
         $(this).toggleClass('active');
         event.preventDefault();
     });
+};
 
-}(jQuery));
+app_init(jQuery);
